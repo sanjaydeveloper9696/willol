@@ -1,0 +1,43 @@
+@media (max-width: 768px) {
+
+
+    .hero{
+        height: 40vh;
+    }
+    .what-choose-us {
+        padding: 15px 10px;
+    }
+
+    .welcome-text h1 {
+
+        font-size: 18px;
+
+    }
+
+    .our-usp {
+        padding-top: 20px;
+    }
+
+    .services {
+        padding: 0px 10px;
+    }
+
+
+
+
+
+    .footer {
+        display: grid;
+        text-align: center;
+        row-gap: 15px;
+        padding: 32px 12px;
+    }
+    .footer-links a{
+        font-size: 14px;
+    }
+
+
+.form-row {
+    flex-direction: column;
+}
+}

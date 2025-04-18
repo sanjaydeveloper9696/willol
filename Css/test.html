@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sticky Header</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: #2b4f73;
+      padding: 15px 40px;
+      color: white;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+    }
+
+    main {
+      padding: 40px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    section h2 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MyWebsite</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Welcome</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare turpis vitae odio bibendum pretium.</p>
+    </section>
+    <section>
+      <h2>More Content</h2>
+      <p>Scroll down to see the sticky header in action. It will stay at the top of the screen while you scroll.</p>
+    </section>
+    <section>
+      <h2>Even More</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula justo eget bibendum tempus.</p>
+    </section>
+    <section>
+      <h2>End of Page</h2>
+      <p>Sticky headers are great for navigation!</p>
+    </section>
+  </main>
+
+</body>
+</html>
