@@ -54,7 +54,7 @@
         position: absolute;
         top: 100%;
         right: 0;
-        background-color: #000;
+        background-color: #2b4f73;
         width: 100%;
         max-height: 0;
         overflow: hidden;
@@ -67,7 +67,7 @@
 
     .nav li {
         padding: 15px 20px;
-        border-top: 1px solid #333;
+        border-top: 1px solid #FFF;
     }
 }
 
@@ -116,7 +116,7 @@
 
 
     .header-design {
-        padding: 5px 10px;
+        padding: 15px 20px;
     }
 
     .nav {
@@ -124,7 +124,7 @@
         position: absolute;
         top: 100%;
         right: 0;
-        background-color: #000;
+        background-color: #2b4f73;
         width: 100%;
         max-height: 0;
         overflow: hidden;
@@ -137,7 +137,7 @@
 
     .nav li {
         padding: 15px 20px;
-        border-top: 1px solid #333;
+        border-top: 1px solid #FFF;
     }
 
 
