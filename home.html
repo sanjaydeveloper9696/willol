@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phone Number Redirect</title>
+</head>
+<body>
+
+<section>
+  <form onsubmit="validatePhoneNumber(); return false;">
+    <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" required>
+    <input type="submit" value="Submit">
+  </form>
+</section>
+
+<script>
+function validatePhoneNumber() {
+  const phoneInput = document.getElementById('phone').value.trim();
+
+  // Simple validation
+  if (!/^\d{10,15}$/.test(phoneInput)) {
+    alert("Please enter a valid phone number.");
+    return;
+  }
+
+  const message = "Download APK here: https://download.hukumkaikka.in/downloadrummy/hukumkaikka.apk";
+  const url = "https://wa.me/" + phoneInput + "?text=" + encodeURIComponent(message);
+  window.location.href = url;
+}
+</script>
+
+
+
+<button><a href="index.html">> Back</a></button>
+
+</body>
+</html>

@@ -136,7 +136,7 @@
       </button>
 
       <ul class="nav" id="navMenu">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="home.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
@@ -148,6 +148,20 @@
       </ul>
     </div>
   </header>
+
+
+
+
+
+<Section>
+<button><a href="https://wa.me/919580983937?text=Download%20APK%20here:%20https://download.hukumkaikka.in/downloadrummy/hukumkaikka.apk"> Download Now </a></button>
+   
+</Section>
+
+
+
+
+
 
   <script>
     const toggleBtn = document.getElementById('menuToggle');
@@ -178,6 +192,31 @@
         document.body.style.overflow = '';
       }
     });
+
+
+
+
+
+
+    import wixLocation from 'wix-location';
+
+$w.onReady(function () {
+    // Yahan koi export function nahi hona chahiye
+});
+
+export function submitButton_click(event) {
+    let phone = $w('#phoneInput').value; // replace with your actual input ID
+    let message = "Download APK here: https://download.hukumkaikka.in/downloadrummy/hukumkaikka.apk";
+    let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+    wixLocation.to(url);
+}
+
+
+
+
+
+
+
   </script>
 
 </body>
