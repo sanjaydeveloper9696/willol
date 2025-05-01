@@ -1,205 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Responsive Navigation</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    header {
-      background: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .header-design {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 0;
-    }
-
-    .logo img {
-      max-width: 100px;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 30px;
-      height: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      display: block;
-      height: 3px;
-      background: #333;
-      border-radius: 3px;
-      transition: 0.3s;
-    }
-
-    .nav {
-      display: flex;
-      list-style: none;
-    }
-
-    .nav li {
-      margin-left: 20px;
-    }
-
-    .nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .nav a:hover {
-      color: #007bff;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 992px) {
-      .menu-toggle {
-        display: flex;
-      }
-
-      .nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        flex-direction: column;
-        background: #fff;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        padding: 100px 20px 20px;
-        transition: 0.3s;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-      }
-
-      .nav.open {
-        right: 0;
-      }
-
-      .nav li {
-        margin: 10px 0;
-      }
-
-      .menu-toggle.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-      }
-
-      .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send SMS</title>
 </head>
 <body>
+  <button onclick="history.back()">&#60; Back</button>
 
-  <header>
-    <div class="header-design container">
-      <div class="logo">
-        <img src="https://example.com/images/Willol.png" alt="Logo" />
-      </div>
+  <br>
+  <br>
+<section>
+  <form onsubmit="sendSMS(); return false;">
+    <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" required>
+    <input type="submit" value="Submit">
+  </form>
+</section>
 
-      <button class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+<script>
+function sendSMS() {
+  const phoneInput = document.getElementById('phone').value.trim();
 
-      <ul class="nav" id="navMenu">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="register.html">Register</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
-    </div>
-  </header>
+  if (!/^\d{10,15}$/.test(phoneInput)) {
+    alert("Please enter a valid phone number.");
+    return;
+  }
 
+  const heading = "🎮 Please download the game!";
+  const body = "Khelo aur jito real cash prize aur jeeto gifts jaise Car, Motorcycle!";
+  const link = "https://download.hukumkaikka.in/downloadrummy/hukumkaikka.apk";
 
+  const message = `${heading}\n\n${body}\n\nDownload here: ${link}`;
 
+  // Format for SMS app
+  const smsUrl = `sms:${phoneInput}?body=${encodeURIComponent(message)}`;
 
-
-<Section>
-<button><a href="https://wa.me/919580983937?text=Download%20APK%20here:%20https://download.hukumkaikka.in/downloadrummy/hukumkaikka.apk"> Download Now </a></button>
-   
-</Section>
-
-
-
-
-
-
-  <script>
-    const toggleBtn = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    toggleBtn.addEventListener('click', () => {
-      toggleBtn.classList.toggle('active');
-      navMenu.classList.toggle('open');
-      document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
-    });
-
-    // Close menu when clicking a link (on mobile)
-    document.querySelectorAll('.nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 992) {
-          toggleBtn.classList.remove('active');
-          navMenu.classList.remove('open');
-          document.body.style.overflow = '';
-        }
-      });
-    });
-
-    // Reset nav on resize
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 992) {
-        toggleBtn.classList.remove('active');
-        navMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-
-
-
-
-
-
-
-  </script>
+  // Redirect to SMS app
+  window.location.href = smsUrl;
+}
+</script>
 
 </body>
 </html>
