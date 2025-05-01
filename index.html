@@ -198,24 +198,6 @@
 
 
 
-    import wixLocation from 'wix-location';
-
-$w.onReady(function () {
-    // Yahan koi export function nahi hona chahiye
-});
-
-export function submitButton_click(event) {
-    let phone = $w('#phoneInput').value; // replace with your actual input ID
-    let message = "Download APK here: https://download.hukumkaikka.in/downloadrummy/hukumkaikka.apk";
-    let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
-    wixLocation.to(url);
-}
-
-
-
-
-
-
 
   </script>
 
