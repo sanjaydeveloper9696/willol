@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Canvas Header</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       /* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header styles */
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Main navigation */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav li {
+    margin-left: 2rem;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #3498db;
+}
+
+/* Menu toggle button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Canvas menu styles */
+.canvas-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: #2c3e50;
+    z-index: 1002;
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.canvas-menu.open {
+    right: 0;
+}
+
+.canvas-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
+.canvas-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.canvas-nav ul {
+    list-style: none;
+}
+
+.canvas-nav li {
+    margin-bottom: 1.5rem;
+}
+
+.canvas-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.canvas-nav a:hover {
+    color: #3498db;
+}
+
+/* Canvas overlay */
+.canvas-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.canvas-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Main content */
+.main-content {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .menu-toggle.active .hamburger {
+        background-color: transparent;
+    }
+    
+    .menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+    
+    .menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    .fa-solid, .fas {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 35px;
+}
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#">Your Logo</a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="canvas-menu">
+        <div class="canvas-header">
+            <button class="canvas-close" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="canvas-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="canvas-overlay"></div>
+
+    <main class="main-content">
+        <h1>Your Page Content</h1>
+        <p>This is the main content of your page.</p>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const canvasMenu = document.querySelector('.canvas-menu');
+    const canvasClose = document.querySelector('.canvas-close');
+    const canvasOverlay = document.querySelector('.canvas-overlay');
+    
+    // Toggle canvas menu
+    menuToggle.addEventListener('click', function() {
+        canvasMenu.classList.toggle('open');
+        canvasOverlay.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+    
+    // Close canvas menu
+    canvasClose.addEventListener('click', function() {
+        canvasMenu.classList.remove('open');
+        canvasOverlay.classList.remove('active');
+        menuToggle.classList.remove('active');
+    });
+    
+    // Close when clicking overlay
+    canvasOverlay.addEventListener('click', function() {
+        canvasMenu.classList.remove('open');
+        canvasOverlay.classList.remove('active');
+        menuToggle.classList.remove('active');
+    });
+    
+    // Close when clicking a link (optional)
+    const canvasLinks = document.querySelectorAll('.canvas-nav a');
+    canvasLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            canvasMenu.classList.remove('open');
+            canvasOverlay.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+    });
+});
+    </script>
+</body>
+</html>
